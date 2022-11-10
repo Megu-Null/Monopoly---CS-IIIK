@@ -1,2 +1,2 @@
 # Monopoly instructions and rules
-mucho fn
+mucho sus
