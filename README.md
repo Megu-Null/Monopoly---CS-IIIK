@@ -1,2 +1,2 @@
-# Monopoly---CS-IIIK
+# Monopoly instructions and rules
 mucho fn
