@@ -1,0 +1,46 @@
+import java.awt.*;
+import javax.swing.*;
+
+public class BackgroundRunner extends JFrame
+{
+	private static final int WIDTH = 840;
+	private static final int HEIGHT = 865;
+	public BackgroundRunner()
+	{
+		super("Monopoly Board");
+		setSize(WIDTH,HEIGHT);
+		add( new Player() );
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		Player p1 = new Player();
+	}
+	public static void main( String args[] )
+	{
+		BackgroundRunner run = new BackgroundRunner();
+	}
+}
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.Map;
+
+public class Player extends JPanel {
+    int pos; Map<Integer, Integer> xPos; Map<Integer, Integer> yPos; int money;
+    public Player(){
+        pos = 1; money = 1500;
+
+    }
+    public void paintComponent( Graphics window )
+    {
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("51AnnChCJcL._AC_SY580_.png");
+        g2.drawImage(img1, 0 , 0 , 825 , 825 , this);
+        Graphics2D g3 = (Graphics2D) window;
+        Image img2 = Toolkit.getDefaultToolkit().getImage("5930075f3919fe0ee3614da2.png");
+        g3.drawImage(img2, 700 , 730 , 130 , 65 , this);
+    }
+}
