@@ -42,5 +42,8 @@ public class Player extends JPanel {
         Graphics2D g3 = (Graphics2D) window;
         Image img2 = Toolkit.getDefaultToolkit().getImage("5930075f3919fe0ee3614da2.png");
         g3.drawImage(img2, 700 , 730 , 130 , 65 , this);
+	Graphics2D g4 = (Graphics2D) window;
+        Image img3 = Toolkit.getDefaultToolkit().getImage("Dice.png");
+        g4.drawImage(img3, 320 , 365 , 150 , 150 , this);
     }
 }
