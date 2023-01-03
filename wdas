@@ -1,0 +1,110 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Player extends JPanel {
+    int pos; Map<Integer, Integer> xPos; Map<Integer, Integer> yPos; int money; int x1; int y1;
+    public Player(){
+        pos = 1; money = 1500; x1=1; y1=1; xPos = new TreeMap<Integer, Integer>(); yPos = new TreeMap<Integer, Integer>();
+        mapCreator();
+    }
+
+    private void mapCreator() {
+        xPos.put(1,700);
+        xPos.put(2,620);
+        xPos.put(3,552);
+        xPos.put(4,484);
+        xPos.put(5,416);
+        xPos.put(6,348);
+        xPos.put(7,280);
+        xPos.put(8,212);
+        xPos.put(9,144);
+        xPos.put(10,76);
+        xPos.put(11,-20);
+        xPos.put(12,-20);
+        xPos.put(13,-20);
+        xPos.put(14,-20);
+        xPos.put(15,-20);
+        xPos.put(16,-20);
+        xPos.put(17,-20);
+        xPos.put(18,-20);
+        xPos.put(19,-20);
+        xPos.put(20,-20);
+        xPos.put(21,-20);
+        xPos.put(22,76);
+        xPos.put(23,144);
+        xPos.put(24,212);
+        xPos.put(25,280);
+        xPos.put(26,348);
+        xPos.put(27,416);
+        xPos.put(28,484);
+        xPos.put(29,552);
+        xPos.put(30,620);
+        xPos.put(31,700);
+        xPos.put(32,700);
+        xPos.put(33,700);
+        xPos.put(34,700);
+        xPos.put(35,700);
+        xPos.put(36,700);
+        xPos.put(37,700);
+        xPos.put(38,700);
+        xPos.put(39,700);
+        xPos.put(40,700);
+        yPos.put(1,750);
+        yPos.put(2,750);
+        yPos.put(3,750);
+        yPos.put(4,750);
+        yPos.put(5,750);
+        yPos.put(6,750);
+        yPos.put(7,750);
+        yPos.put(8,750);
+        yPos.put(9,750);
+        yPos.put(10,750);
+        yPos.put(11,750);
+        yPos.put(12,650);
+        yPos.put(13,583);
+        yPos.put(14,515);
+        yPos.put(15,448);
+        yPos.put(16,380);
+        yPos.put(17,313);
+        yPos.put(18,245);
+        yPos.put(19,178);
+        yPos.put(20,110);
+        yPos.put(21,25);
+        yPos.put(22,25);
+        yPos.put(23,25);
+        yPos.put(24,25);
+        yPos.put(25,25);
+        yPos.put(26,25);
+        yPos.put(27,25);
+        yPos.put(28,25);
+        yPos.put(29,25);
+        yPos.put(30,25);
+        yPos.put(31,25);
+        yPos.put(32,110);
+        yPos.put(33,178);
+        yPos.put(34,245);
+        yPos.put(35,313);
+        yPos.put(36,380);
+        yPos.put(37,448);
+        yPos.put(38,515);
+        yPos.put(39,583);
+        yPos.put(40,650);
+    }
+    public void paintComponent( Graphics window )
+    {
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("51AnnChCJcL._AC_SY580_.png");
+        g2.drawImage(img1, 0 , 0 , 825 , 825 , this);
+        Image img2 = Toolkit.getDefaultToolkit().getImage("5930075f3919fe0ee3614da2.png");
+        g2.drawImage(img2, xPos.get(x1) , yPos.get(y1) , 130 , 65 , this);
+    }
+    public void diceRoll(Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img3 = Toolkit.getDefaultToolkit().getImage("DiceRollAnimation.gif");
+        g2.drawImage(img3, 250, 250, 150, 150, this);
+    }
+}
