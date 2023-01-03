@@ -1,0 +1,30 @@
+import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.*;
+
+public class BackgroundRunner extends JFrame {
+	private static final int WIDTH = 840;
+	private static final int HEIGHT = 865;
+	Player p1;
+
+	public BackgroundRunner() {
+		super("Monopoly Board");
+		setSize(WIDTH, HEIGHT);
+		add(new Player());
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		p1 = new Player();
+	}
+
+	public void mouseClicked(MouseEvent e) {
+	int x = e.getX();
+	int y = e.getY();
+		if((x>300&&x<400)&&(y>300&&y<400))
+
+	}
+	public static void main( String args[] )
+	{
+		BackgroundRunner run = new BackgroundRunner();
+	}
+}
