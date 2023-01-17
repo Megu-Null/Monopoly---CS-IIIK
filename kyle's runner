@@ -1,0 +1,42 @@
+import javax.swing.*;
+
+public class Runner extends JFrame {
+    private static final int WIDTH = 840;
+    private static final int HEIGHT = 865;
+    Player p1;
+
+
+
+    public Runner()  {
+        super("Monopoly Board");
+        setSize(WIDTH, HEIGHT);
+
+        add(new Monopoly());
+        //add(new Player());
+       setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        p1 = new Player();
+
+       // p2 = new Monopoly();
+    }
+    public void run() {
+
+        try {
+            while (true) {
+                Thread.sleep(50);
+                repaint();
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
+
+
+    public static void main( String args[] )
+    {
+        Player p = new Player();
+        Monopoly m = new Monopoly();
+        new Runner();
+    }
+}
