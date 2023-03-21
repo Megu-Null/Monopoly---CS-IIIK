@@ -1,0 +1,36 @@
+import javax.swing.*;
+import java.awt.*;
+public class Frogger extends JPanel{
+    JLabel label; ImageIcon icon;
+    public Frogger(){
+
+    }
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("froggermap.png");
+        g2.drawImage(img1,0,0,664,1184,this);
+    }
+}
+
+
+
+
+
+import javax.swing.*;
+
+
+public class FroggerRunner extends JFrame{
+    private static final int WIDTH = 664;
+    private static final int HEIGHT = 1184;
+    JFrame j1;
+    FroggerRunner() {
+        j1 = new JFrame("Frogger");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(WIDTH,HEIGHT);
+        add(new Frogger());
+        setVisible(true);
+    }
+    public static void main(String[] args){
+        FroggerRunner run = new FroggerRunner();
+    }
+}
