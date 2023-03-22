@@ -1,0 +1,102 @@
+import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+
+
+public class FroggerRunner extends JFrame implements KeyListener {
+    private static final int WIDTH = 675; public int x1;
+    private static final int HEIGHT = 1220;
+    public JFrame j1;
+    FroggerRunner() {
+        j1 = new JFrame("Frogger");
+        addKeyListener(this);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(WIDTH,HEIGHT);
+        add(new Frog());
+        setVisible(true);
+        add(new Frogger());
+        setVisible(true);
+        repaint();
+    }
+    public static void main(String[] args){
+        FroggerRunner run = new FroggerRunner();
+    }
+    public void keyTyped(KeyEvent e) {
+    }
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            Frog.x1+=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_UP){
+            Frog.y1-=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_DOWN){
+            Frog.y1+=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_LEFT){
+            Frog.x1-=100;
+            repaint();
+        }
+        if(Frog.y1<0){
+            Frog.y1=1090;
+            Frog.level++;
+        }
+    }
+    public void keyReleased(KeyEvent e) {
+    }
+}
+
+
+
+
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+public class Frogger extends JPanel{
+    JLabel label; ImageIcon icon;
+    public Frogger(){
+
+    }
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("froggermap.png");
+        g2.drawImage(img1,0,0,664,1184,this);
+    }
+}
+
+
+
+
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.KeyListener;
+
+public class Frog extends JPanel{
+    Graphics g1; static int x1; static int y1; static int level;
+    public Frog(){
+        x1=275; y1=1090; level=1;
+    }
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        g1=g2;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("frog.png");
+        g2.drawImage(img1,x1,y1,100,100,this);
+        g2.setColor(Color.cyan);
+        g2.setFont(new Font("Serif",Font.PLAIN,30));
+        g2.drawString("Level: "+level,5,25);
+        g2.drawString(""+y1,5,55);
+    }
+}
