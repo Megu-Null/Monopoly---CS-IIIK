@@ -64,10 +64,26 @@ public class Frogger extends JPanel{
     public Frogger(){
 
     }
-    public void paintComponent( Graphics window){
+   public void paintComponent( Graphics window){
         Graphics2D g2 = (Graphics2D) window;
+
         Image img1 = Toolkit.getDefaultToolkit().getImage("froggermap.png");
         g2.drawImage(img1,0,0,664,1184,this);
+
+        Image img2 = Toolkit.getDefaultToolkit().getImage("Frogger.png");
+        g2.drawImage(img2,300,1000,50,100,this);
+
+        Image img3 = Toolkit.getDefaultToolkit().getImage("Car.png");
+        g2.drawImage(img3,0,900,50,100,this);
+        g2.drawImage(img3,200,900,50,100,this);
+        g2.drawImage(img3,400,900,50,100,this);
+        g2.drawImage(img3,600,900,50,100,this);
+
+        Image img4 = Toolkit.getDefaultToolkit().getImage("Truck.png");
+        g2.drawImage(img4,0,700,125,75,this);
+        g2.drawImage(img4,250,700,125,75,this);
+        g2.drawImage(img4,500,700,125,75,this);
+
     }
 }
 
