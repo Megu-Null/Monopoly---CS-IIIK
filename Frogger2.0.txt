@@ -1,0 +1,159 @@
+import javax.swing.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.*;
+
+
+public class FroggerRunner extends JFrame implements KeyListener{
+    private static final int WIDTH = 675;
+    private static final int HEIGHT = 1220;
+    public static JFrame j1;
+    FroggerRunner() {
+        j1 = new JFrame("Frogger");
+        addKeyListener(this);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(WIDTH,HEIGHT);
+        add(new Frog());
+        setVisible(true);
+        add(new Truck(690));
+        setVisible(true);
+        add(new Car(890));
+        setVisible(true);
+        add(new Frogger());
+        setVisible(true);
+    }
+    public static void main(String[] args){
+        FroggerRunner run = new FroggerRunner();
+
+    }
+    public void keyTyped(KeyEvent e) {
+    }
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+            Frog.x1+=100;
+            Car.x2+=100;
+            Truck.x2+=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_UP){
+            Frog.y1-=100;
+            Car.x2+=100;
+            Truck.x2+=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_DOWN){
+            Frog.y1+=100;
+            Car.x2+=100;
+            Truck.x2+=100;
+            repaint();
+        }
+        if(e.getKeyCode() == KeyEvent.VK_LEFT){
+            Frog.x1-=100;
+            Car.x2+=100;
+            Truck.x2+=100;
+            repaint();
+        }
+        if(Frog.y1<0){
+            Frog.y1=1090;
+            Frog.x1=275;
+            Frog.level++;
+        }
+        if(Frog.y1>1150){
+            Frog.y1=1090;
+        }
+        if(Frog.x1<0){
+            Frog.x1=-25;
+        }
+        if(Frog.x1>600){
+            Frog.x1=575;
+        }
+        if(Car.x2>600){
+            Car.x2=-25;
+        }
+        if(Truck.x2>600){
+            Truck.x2=-25;
+        }
+    }
+    public void keyReleased(KeyEvent e) {
+    }
+}
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+public class Truck extends JPanel {
+    static int speed; static int x2; static int y2;
+    public Truck(int y3){
+        x2=-25; y2=y3;
+    }
+    public void paintComponent(Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("truck.png");
+        g2.drawImage(img1,x2,y2,200,100,this);
+    }
+}
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+public class Car extends JPanel {
+    static int speed; static int x2; static int y2;
+    public Car(int y3){
+        x2=-25; y2=y3;
+    }
+    public void paintComponent(Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("car.png");
+        g2.drawImage(img1,x2,y2,100,100,this);
+    }
+}
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+public class Frogger extends JPanel{
+    JLabel label; ImageIcon icon;
+    public Frogger(){
+
+    }
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("froggermap.png");
+        g2.drawImage(img1,0,0,664,1184,this);
+    }
+}
+
+
+
+
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.KeyListener;
+
+public class Frog extends JPanel{
+    static int x1; static int y1; static int level;
+    public Frog(){
+        x1=275; y1=1090; level=1;
+    }
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+        Image img1 = Toolkit.getDefaultToolkit().getImage("frog.png");
+        g2.drawImage(img1,x1,y1,100,100,this);
+        g2.setColor(Color.cyan);
+        g2.setFont(new Font("Serif",Font.PLAIN,30));
+        g2.drawString("Level: "+level,5,25);
+        if(level>=7){
+            g2.drawString("You win!",275,55);
+        }
+    }
+}
