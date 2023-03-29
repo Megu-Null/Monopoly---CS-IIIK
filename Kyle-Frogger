@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.awt.*;
+public class Frogger extends JPanel{
+    JLabel label; ImageIcon icon;
+
+    public Frogger(){
+    }
+
+    public void paintComponent( Graphics window){
+        Graphics2D g2 = (Graphics2D) window;
+
+        Image img1 = Toolkit.getDefaultToolkit().getImage("preview_empty_play_state.png");
+        g2.drawImage(img1,0,0,664,1184,this);
+
+       // Image img2 = Toolkit.getDefaultToolkit().getImage("Frogger.png");
+        //g2.drawImage(img2,300,1000,50,100,this);
+
+        Image img3 = Toolkit.getDefaultToolkit().getImage("Car.png");
+        g2.drawImage(img3,0,925,50,75,this);
+        g2.drawImage(img3,200,925,50,75,this);
+        g2.drawImage(img3,400,925,50,75,this);
+        g2.drawImage(img3,600,925,50,75,this);
+
+        Image img4 = Toolkit.getDefaultToolkit().getImage("Truck.png");
+        g2.drawImage(img4,0,700,125,75,this);
+        g2.drawImage(img4,250,700,125,75,this);
+        g2.drawImage(img4,500,700,125,75,this);
+
+        Image img5 = Toolkit.getDefaultToolkit().getImage("Log.png");
+        g2.drawImage(img5,150,475,200,125,this);
+        g2.drawImage(img5,450,475,200,125,this);
+        g2.drawImage(img5,50,250,375,125,this);
+        g2.drawImage(img5,500,250,375,125,this);
+
+        Image img6 = Toolkit.getDefaultToolkit().getImage("Turtle.png");
+        g2.drawImage(img6,150,200,50,100,this);
+        g2.drawImage(img6,225,200,50,100,this);
+        g2.drawImage(img6,300,200,50,100,this);
+
+        Image img7 = Toolkit.getDefaultToolkit().getImage("Car3.png");
+        g2.drawImage(img7,100,850,50,75,this);
+        g2.drawImage(img7,500,850,50,75,this);
+
+
+    }
+
+    }
